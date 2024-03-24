@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="assets/qr-code.ico" />
+    <title>QR Code Generator</title>
+  </head>
+  <body>
+    <!-- * Main content -->
+    <main>
+      <!-- * Form section -->
+      <section id="form-section" class="form-section">
+        <img src="/assets/logo-qr-generator.svg" />
+        <form id="qr-form" class="qr-form">
+          <div id="url-input" class="url-input">
+            <input
+              id="qr-input"
+              class="input-text"
+              type="text"
+              placeholder="Enter an url"
+            />
+            <button class="btn" type="submit">QR code</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- * Result section -->
+      <section id="result-section" class="result-section hidden">
+        <div class="result-logo">
+          <img class="go-home" src="/assets/logo-qr-generator.svg" />
+        </div>
+        <div class="encoded-group">
+          <div id="encoded" class="encoded">
+            <!-- <img
+              width="200"
+              src="https://qrcg-free-editor.qr-code-generator.com/main/assets/images/websiteQRCode_noFrame.png"
+            /> -->
+          </div>
+          <div class="button-group">
+            <button id="download-button" class="download-button">
+              Download
+            </button>
+            <button id="share-button" class="share-button">Share</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- * Scripts -->
+    <script src="js/main.js"></script>
+    <script
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
