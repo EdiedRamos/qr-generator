@@ -25,7 +25,10 @@
 }
 
 body {
-  background: var(--black) url("../assets/bg-illustration.svg") no-repeat right;
+  background-image: url("../assets/bg-illustration.svg");
+  background-color: var(--black);
+  background-repeat: no-repeat;
+  background-position: right;
   background-attachment: fixed;
   min-height: 100vh;
   font-family: "Outfit", sans-serif;
