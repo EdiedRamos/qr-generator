@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="QR Code generator" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="assets/qr-code.ico" />
     <title>QR Code Generator</title>
@@ -12,7 +13,7 @@
     <main>
       <!-- * Form section -->
       <section id="form-section" class="form-section">
-        <img src="assets/logo-qr-generator.svg" />
+        <img src="assets/logo-qr-generator.svg" alt="qr code image" />
         <form id="qr-form" class="qr-form">
           <div id="url-input" class="url-input">
             <input
@@ -29,7 +30,11 @@
       <!-- * Result section -->
       <section id="result-section" class="result-section hidden">
         <div class="result-logo">
-          <img class="go-home" src="assets/logo-qr-generator.svg" />
+          <img
+            class="go-home"
+            src="assets/logo-qr-generator.svg"
+            alt="qr code image"
+          />
         </div>
         <div class="encoded-group">
           <div id="encoded" class="encoded"></div>
