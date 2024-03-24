@@ -103,7 +103,8 @@ body {
   width: var(--size);
   height: var(--size);
 
-  img {
+  img,
+  canvas {
     --size: 200px;
     border-radius: 25px;
     background-color: white;
