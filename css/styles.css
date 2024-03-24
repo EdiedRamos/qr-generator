@@ -26,10 +26,10 @@
 
 body {
   background-image: url("../assets/bg-illustration.svg");
-  background-color: var(--black);
-  background-repeat: no-repeat;
   background-position: right;
+  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-color: var(--black);
   min-height: 100vh;
   font-family: "Outfit", sans-serif;
 }
@@ -106,10 +106,10 @@ body {
   img {
     --size: 200px;
     border-radius: 25px;
+    background-color: white;
+    padding: 1rem;
     width: var(--size);
     height: var(--size);
-    padding: 1rem;
-    background-color: white;
   }
 }
 
@@ -131,8 +131,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
   gap: 5px;
+  border: none;
   border-radius: var(--radius-1);
   background-color: var(--blue);
   padding: 1.2rem 1rem;
@@ -147,9 +147,9 @@ body {
 
 .button-image {
   --size: 14px;
+  fill: white;
   width: var(--size);
   height: var(--size);
-  fill: white;
 }
 
 .invalid-input {
