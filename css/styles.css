@@ -16,6 +16,9 @@
   --purple: #111729;
   --blue: #3662e3;
   --light-blue: #d0dcf4;
+  --dark-blue: #1e3fad;
+  --success: #248232;
+  --error: #ea526f;
 
   /* * Border radius */
   --radius-1: 12px;
@@ -79,6 +82,7 @@ body {
 
   &:hover {
     cursor: pointer;
+    background-color: var(--dark-blue);
   }
 }
 
@@ -125,6 +129,7 @@ body {
   justify-content: center;
   align-items: center;
   border: none;
+  gap: 5px;
   border-radius: var(--radius-1);
   background-color: var(--blue);
   padding: 1.2rem 1rem;
@@ -133,11 +138,19 @@ body {
 
   &:hover {
     cursor: pointer;
+    background-color: var(--dark-blue);
   }
 }
 
+.button-image {
+  --size: 14px;
+  width: var(--size);
+  height: var(--size);
+  fill: white;
+}
+
 .invalid-input {
-  border: 2px solid red;
+  border: 2px solid var(--error);
 }
 
 .go-home {
@@ -146,16 +159,16 @@ body {
   }
 }
 
+.success-state {
+  background-color: var(--success) !important;
+}
+
 /* * Visibility */
 .hidden {
   display: none;
 }
 
 /* * Media queries */
-
-/* * sm */
-@media (width >= 576px) {
-}
 
 /* * md */
 @media (width >= 768px) {
@@ -171,12 +184,4 @@ body {
   .btn {
     width: 150px;
   }
-}
-
-/* * lg */
-@media (width >= 992px) {
-}
-
-/* * xl */
-@media (width >= 1200px) {
 }

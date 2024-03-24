@@ -1,4 +1,12 @@
-// ! CODE COPY AND DOWNLOAD BUTTONS
+function timeoutHandler(time) {
+  let timeoutId = null;
+  return (callback) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      callback();
+    }, time);
+  };
+}
 
 // DOM shorthands
 const domShort = {
@@ -13,11 +21,14 @@ const references = {
   urlInput: domShort.byId("url-input"),
   formSection: domShort.byId("form-section"),
   resultSection: domShort.byId("result-section"),
+  downloadButton: domShort.byId("download-button"),
+  shareButton: domShort.byId("share-button"),
   encoded: domShort.byQuery(".encoded"),
   goHome: domShort.byQuery(".go-home"),
 
   reactive: {
     qrImage: () => domShort.byQuery("#encoded img"),
+    canvas: () => domShort.byQuery("canvas"),
   },
 };
 
@@ -25,6 +36,10 @@ function clearPreviousQr() {
   const qrImage = references.reactive.qrImage();
   if (qrImage) {
     references.encoded.removeChild(qrImage);
+  }
+  const canvas = references.reactive.canvas();
+  if (canvas) {
+    references.encoded.removeChild(canvas);
   }
 }
 
@@ -45,6 +60,34 @@ function renderResult() {
 
   references.formSection.classList.add("hidden");
   references.resultSection.classList.remove("hidden");
+}
+
+function handleDownload() {
+  references.downloadButton.addEventListener("click", function () {
+    const canvas = references.reactive.canvas();
+    const link = document.createElement("a");
+    link.download = "qr_code.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+}
+
+function handleShare() {
+  const eventsTimeoutHandler = timeoutHandler(1000);
+  references.shareButton.addEventListener("click", function () {
+    const canvas = references.reactive.canvas();
+    canvas.toBlob(function (blob) {
+      navigator.clipboard
+        .write([new ClipboardItem({ [blob.type]: blob })])
+        .then(() => {
+          references.shareButton.classList.add("success-state");
+          eventsTimeoutHandler(() =>
+            references.shareButton.classList.remove("success-state")
+          );
+        })
+        .catch((err) => console.warn("copy qrcode: some went wrong", err));
+    });
+  });
 }
 
 function handleSubmit() {
@@ -77,6 +120,8 @@ function handleGoHome() {
 function setupListeners() {
   handleSubmit();
   handleGoHome();
+  handleDownload();
+  handleShare();
 }
 
 function main() {
