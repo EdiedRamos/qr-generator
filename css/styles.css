@@ -55,9 +55,18 @@ body {
   gap: 8px;
   border: 2px solid var(--blue);
   border-radius: var(--radius-1);
+  background-color: var(--black);
   padding: 5px 5px 5px 15px;
   width: 90%;
   height: 60px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--black) inset !important;
+  -webkit-text-fill-color: var(--white) !important;
 }
 
 .input-text {
